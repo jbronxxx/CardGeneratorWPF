@@ -4,6 +4,8 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <StartupObject>CardGeneratorUI.App</StartupObject>
+    <ApplicationIcon>Images\credit_card_icon_129121.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
