@@ -7,7 +7,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="credit_card_icon_129121.png" />
+    <None Remove="Mastercard_icon-icons.com_60554.png" />
+    <None Remove="national-payment-system-mir-logo-png-transparent.png" />
+    <None Remove="png-transparent-logo-visa-credit-card-business-visa-text-trademark-payment.png" />
+    <None Remove="visa-electron_82057.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CardGeneratorCore\CardGeneratorCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="credit_card_icon_129121.png" />
+    <Resource Include="Mastercard_icon-icons.com_60554.png" />
+    <Resource Include="national-payment-system-mir-logo-png-transparent.png" />
+    <Resource Include="png-transparent-logo-visa-credit-card-business-visa-text-trademark-payment.png" />
+    <Resource Include="visa-electron_82057.png" />
   </ItemGroup>
 
 </Project>

@@ -6,6 +6,6 @@ namespace CardGeneratorCore.CardGenerator
     {
         public Task<string> GenerateCardAsync(int[] binArray, int printCardCount);
 
-        public Task<bool> LuhnAlgorithmValidationAsync(string cardToCheck);
+        public Task<bool> IsValidCardAsync(string cardToCheck);
     }
 }

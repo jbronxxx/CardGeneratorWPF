@@ -1,29 +1,16 @@
 ﻿using CardGeneratorCore.CardGenerator;
 using CardGeneratorCore.Cards;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CardGeneratorUI
 {
     public partial class MainWindow : Window
     {
-        private readonly ICard _visa;
-        private readonly ICard _masterCard;
-        private readonly ICard _mir;
-        private readonly RandomCard _customCard;
-        private readonly ICard[] _cards;
+        private ICard _visa;
+        private ICard _masterCard;
+        private ICard _mir;
+        private RandomCard _customCard;
 
         private readonly ICardGenerator _cardgenerator;
 
@@ -33,77 +20,89 @@ namespace CardGeneratorUI
         {
             InitializeComponent();
 
-            _visa = new Visa();
-
-            _masterCard = new MasterCard();
-
-            _mir = new Mir();
-
-            _customCard = new RandomCard();
-
             _cardgenerator = new CardGeneratorController();
-
-            _cards = new ICard[]
-            {
-                _visa,
-                _masterCard,
-                _mir,
-                _customCard
-            };
         }
         #region CardGenerateBtns
 
         private async void GenerateVisaBtn_Click(object sender, RoutedEventArgs e)
         {
+            _visa = new Visa();
+
             if (VisaTab.IsSelected)
             {
                 if (IsDigitsOnly(VisaCountTxtBox.Text)
                                     && !string.IsNullOrEmpty(VisaCountTxtBox.Text))
                 {
-                    VisaTextBoxMain.Text = await _cards[0].GenerateCardAsync(
+                    VisaTextBoxMain.Text = await _visa.GenerateCardAsync(
                                         _visa.BinArray, int.Parse(VisaCountTxtBox.Text));
                 }
+                else
+                    MessageBox.Show("Введите колличество карт цифрами");
             }
         }
 
         private async void GenerateMCardBtn_Click(object sender, RoutedEventArgs e)
         {
+            _masterCard = new MasterCard();
+
             if (MCardTab.IsSelected)
             {
                 if (IsDigitsOnly(MCardCountTxtBox.Text) &&
                     !string.IsNullOrEmpty(MCardCountTxtBox.Text))
                 {
-                    MCardTextBoxMain.Text = await _cards[1].GenerateCardAsync(
+                    MCardTextBoxMain.Text = await _masterCard.GenerateCardAsync(
                                         _masterCard.BinArray, int.Parse(MCardCountTxtBox.Text));
                 }
+                else
+                    MessageBox.Show("Введите колличество карт цифрами");
             }
         }
 
         private async void GenerateMirBtn_Click(object sender, RoutedEventArgs e)
         {
+            _mir = new Mir();
+
             if (MirTab.IsSelected)
             {
                 if (IsDigitsOnly(MirCountTxtBox.Text)
                     && !string.IsNullOrEmpty(MirCountTxtBox.Text))
                 {
-                    MirTextBoxMain.Text = await _cards[2].GenerateCardAsync(
+                    MirTextBoxMain.Text = await _mir.GenerateCardAsync(
                                         _mir.BinArray, int.Parse(MirCountTxtBox.Text));
                 }
+                else
+                    MessageBox.Show("Введите колличество карт цифрами");
             }
         }
 
         private async void GenerateCustomBtn_Click(object sender, RoutedEventArgs e)
         {
+            _customCard = new RandomCard();
+
             if (CustomCardTab.IsSelected)
             {
-                if (IsDigitsOnly(CustomCountTxtBox.Text)
-                    && !string.IsNullOrEmpty(CustomCountTxtBox.Text)
-                    && IsDigitsOnly(NewBinTxtBox.Text)
-                    && !string.IsNullOrEmpty(NewBinTxtBox.Text))
+                if (!string.IsNullOrEmpty(NewBinTxtBox.Text))
                 {
-                    CustomCardTextBoxMain.Text = await _customCard.GenerateCardAsync(
-                                        Int32.Parse(NewBinTxtBox.Text), int.Parse(CustomCountTxtBox.Text));
+                    if (IsDigitsOnly(NewBinTxtBox.Text))
+                    {
+                        if (!string.IsNullOrEmpty(CustomCountTxtBox.Text))
+                        {
+                            if (IsDigitsOnly(CustomCountTxtBox.Text))
+                            {
+                                CustomCardTextBoxMain.Text = await _customCard.GenerateCardAsync(
+                                                Int32.Parse(NewBinTxtBox.Text), int.Parse(CustomCountTxtBox.Text));
+                            }
+                            else
+                                MessageBox.Show("Введите цифры");
+                        }
+                        else
+                            MessageBox.Show("Введите колличество карт");
+                    }
+                    else
+                        MessageBox.Show("Введите цифры");
                 }
+                else
+                    MessageBox.Show("Введите Bin карты");
             }
         }
 
@@ -116,7 +115,7 @@ namespace CardGeneratorUI
             if (IsDigitsOnly(ValidateVisaTxtBox.Text) 
                 && !string.IsNullOrEmpty(ValidateVisaTxtBox.Text))
             {
-                bool result = await _cardgenerator.LuhnAlgorithmValidationAsync(ValidateVisaTxtBox.Text);
+                bool result = await _cardgenerator.IsValidCardAsync(ValidateVisaTxtBox.Text);
 
                 if (result)
                     MessageBox.Show("Карта прошла проверку");
@@ -132,7 +131,7 @@ namespace CardGeneratorUI
             if (IsDigitsOnly(ValidateMCardTxtBox.Text)
                 && !string.IsNullOrEmpty(ValidateMCardTxtBox.Text))
             {
-                bool result = await _cardgenerator.LuhnAlgorithmValidationAsync(ValidateMCardTxtBox.Text);
+                bool result = await _cardgenerator.IsValidCardAsync(ValidateMCardTxtBox.Text);
 
                 if (result)
                     MessageBox.Show("Карта прошла проверку");
@@ -148,7 +147,7 @@ namespace CardGeneratorUI
             if (IsDigitsOnly(ValidateMirTxtBox.Text)
                 && !string.IsNullOrEmpty(ValidateMirTxtBox.Text))
             {
-                bool result = await _cardgenerator.LuhnAlgorithmValidationAsync(ValidateMirTxtBox.Text);
+                bool result = await _cardgenerator.IsValidCardAsync(ValidateMirTxtBox.Text);
 
                 if (result)
                     MessageBox.Show("Карта прошла проверку");
@@ -164,7 +163,7 @@ namespace CardGeneratorUI
             if (IsDigitsOnly(ValidateCustomCardTxtBox.Text)
                 && !string.IsNullOrEmpty(ValidateCustomCardTxtBox.Text))
             {
-                bool result = await _cardgenerator.LuhnAlgorithmValidationAsync(ValidateCustomCardTxtBox.Text);
+                bool result = await _cardgenerator.IsValidCardAsync(ValidateCustomCardTxtBox.Text);
 
                 if (result)
                     MessageBox.Show("Карта прошла проверку");
@@ -177,6 +176,7 @@ namespace CardGeneratorUI
 
         #endregion
 
+        // Проверка на цифры полей для ввода
         static bool IsDigitsOnly(string str)
         {
             foreach (char c in str)

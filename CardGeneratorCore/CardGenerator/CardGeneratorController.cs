@@ -123,7 +123,7 @@ namespace CardGeneratorCore.CardGenerator
          * Метод такой же как LuhnAlgorithmAsync, но принимает на вход целый номер карты
          * и, возвращает true, если карта валидна.
          */
-        public async Task<bool> LuhnAlgorithmValidationAsync(string cardToCheck)
+        public async Task<bool> IsValidCardAsync(string cardToCheck)
         {
             int sum = 0;
 

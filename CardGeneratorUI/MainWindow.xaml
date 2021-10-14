@@ -4,57 +4,60 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Card Generator" Height="450" Width="800" ResizeMode="NoResize" WindowStyle="ToolWindow">
+        Title="Card Generator" Height="450" Width="818" ResizeMode="CanMinimize" WindowStyle="ToolWindow">
     <Grid>
         <TabControl x:Name="CardTabs" >
             <TabItem Name="VisaTab" Header="Visa" Width="80" Height="40">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox x:Name="VisaTextBoxMain" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="210" Height="350" BorderBrush="Black" FontSize="20"/>
+                    <TextBox x:Name="VisaTextBoxMain" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="210" Height="350" BorderBrush="Black" FontSize="20" IsReadOnly="True"/>
                     <TextBox x:Name="ValidateVisaTxtBox" HorizontalAlignment="Left" Margin="531,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" Height="53" FontSize="22" BorderBrush="Black"/>
                     <TextBox x:Name="VisaCountTxtBox" HorizontalAlignment="Left" Margin="239,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="53" FontSize="22" BorderBrush="Black"/>
                     <Button x:Name="ValidateVisaBtn" Content="Проверить" HorizontalAlignment="Left" Margin="605,311,0,0" VerticalAlignment="Top" Width="165" Height="46" FontSize="18" BorderBrush="Black" Click="ValidateVisaBtn_Click"/>
                     <Button x:Name="GenerateVisaBtn" Content="Сгенерировать" HorizontalAlignment="Left" Margin="239,311,0,0" VerticalAlignment="Top" Width="165" Height="46" FontSize="18" BorderBrush="Black" RenderTransformOrigin="0.535,-0.086" Click="GenerateVisaBtn_Click"/>
                     <Label x:Name="GenerateVisaLable" Content="Колличество карт" HorizontalAlignment="Left" Margin="239,202,0,0" VerticalAlignment="Top" Width="165" Height="32" FontSize="18"/>
                     <Label x:Name="ValidateVisaLable" Content="Номер карты для проверки" HorizontalAlignment="Left" Margin="531,202,0,0" VerticalAlignment="Top" Width="239" Height="32" FontSize="18"/>
+                    <Image HorizontalAlignment="Left" Height="125" Margin="615,18,0,0" VerticalAlignment="Top" Width="155" Source="/visa-electron_82057.png" Visibility="Visible">
+
+                    </Image>
                 </Grid>
             </TabItem>
             <TabItem Name="MCardTab" Header="MasterCard" Width="80" Height="40">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox x:Name="MCardTextBoxMain" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="210" Height="350" BorderBrush="Black" FontSize="20"/>
+                    <TextBox x:Name="MCardTextBoxMain" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="210" Height="350" BorderBrush="Black" FontSize="20" IsReadOnly="True"/>
                     <TextBox x:Name="ValidateMCardTxtBox" HorizontalAlignment="Left" Margin="531,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" Height="53" FontSize="22" BorderBrush="Black"/>
                     <TextBox x:Name="MCardCountTxtBox" HorizontalAlignment="Left" Margin="239,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="53" FontSize="22" BorderBrush="Black"/>
                     <Button x:Name="ValidateMCardBtn" Content="Проверить" HorizontalAlignment="Left" Margin="605,311,0,0" VerticalAlignment="Top" Width="165" Height="46" FontSize="18" BorderBrush="Black" Click="ValidateMCardBtn_Click"/>
                     <Button x:Name="GenerateMCardBtn" Content="Сгенерировать" HorizontalAlignment="Left" Margin="239,311,0,0" VerticalAlignment="Top" Width="165" Height="46" FontSize="18" BorderBrush="Black" RenderTransformOrigin="0.535,-0.086" Click="GenerateMCardBtn_Click"/>
                     <Label x:Name="GenerateMCardLable" Content="Колличество карт" HorizontalAlignment="Left" Margin="239,202,0,0" VerticalAlignment="Top" Width="165" Height="32" FontSize="18"/>
                     <Label x:Name="ValidateMCardLable" Content="Номер карты для проверки" HorizontalAlignment="Left" Margin="531,202,0,0" VerticalAlignment="Top" Width="239" Height="32" FontSize="18"/>
+                    <Image HorizontalAlignment="Left" Height="125" Margin="615,18,0,0" VerticalAlignment="Top" Width="155" Source="/Mastercard_icon-icons.com_60554.png"/>
                 </Grid>
             </TabItem>
             <TabItem Name="MirTab" Header="Mir" Width="80" Height="40" FontSize="12">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox x:Name="MirTextBoxMain" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="210" Height="350" BorderBrush="Black" FontSize="20"/>
+                    <TextBox x:Name="MirTextBoxMain" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="210" Height="350" BorderBrush="Black" FontSize="20" IsReadOnly="True"/>
                     <TextBox x:Name="ValidateMirTxtBox" HorizontalAlignment="Left" Margin="531,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" Height="53" FontSize="22" BorderBrush="Black"/>
                     <TextBox x:Name="MirCountTxtBox" HorizontalAlignment="Left" Margin="239,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="53" FontSize="22" BorderBrush="Black"/>
                     <Button x:Name="ValidaetMirBtn" Content="Проверить" HorizontalAlignment="Left" Margin="605,311,0,0" VerticalAlignment="Top" Width="165" Height="46" FontSize="18" BorderBrush="Black" Click="ValidaetMirBtn_Click"/>
                     <Button x:Name="GenerateMirBtn" Content="Сгенерировать" HorizontalAlignment="Left" Margin="239,311,0,0" VerticalAlignment="Top" Width="165" Height="46" FontSize="18" BorderBrush="Black" RenderTransformOrigin="0.535,-0.086" Click="GenerateMirBtn_Click"/>
                     <Label x:Name="GenerateMirLable" Content="Колличество карт" HorizontalAlignment="Left" Margin="239,202,0,0" VerticalAlignment="Top" Width="165" Height="32" FontSize="18"/>
                     <Label x:Name="ValidateMirLable" Content="Номер карты для проверки" HorizontalAlignment="Left" Margin="531,202,0,0" VerticalAlignment="Top" Width="239" Height="32" FontSize="18"/>
+                    <Image HorizontalAlignment="Left" Height="125" Margin="615,18,0,0" VerticalAlignment="Top" Width="155" Source="/national-payment-system-mir-logo-png-transparent.png"/>
                 </Grid>
             </TabItem>
             <TabItem Name="CustomCardTab" Header="Custom Card" Width="80" Height="40" FontSize="12">
                 <Grid Background="#FFE5E5E5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="106*"/>
-                        <ColumnDefinition Width="291*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBox x:Name="CustomCardTextBoxMain" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="210" Height="350" BorderBrush="Black" Grid.ColumnSpan="2" FontSize="20"/>
-                    <TextBox x:Name="ValidateCustomCardTxtBox" HorizontalAlignment="Left" Margin="319,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" Height="53" FontSize="22" BorderBrush="Black" Grid.Column="1"/>
-                    <TextBox x:Name="CustomCountTxtBox" HorizontalAlignment="Left" Margin="27,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="53" FontSize="22" BorderBrush="Black" Grid.Column="1"/>
-                    <Button x:Name="ValidaetCustomBtn" Content="Проверить" HorizontalAlignment="Left" Margin="393,311,0,0" VerticalAlignment="Top" Width="165" Height="46" FontSize="18" BorderBrush="Black" Grid.Column="1" Click="ValidaetCustomBtn_Click"/>
-                    <Button x:Name="GenerateCustomBtn" Content="Сгенерировать" HorizontalAlignment="Left" Margin="27,311,0,0" VerticalAlignment="Top" Width="165" Height="46" FontSize="18" BorderBrush="Black" RenderTransformOrigin="0.535,-0.086" Grid.Column="1" Click="GenerateCustomBtn_Click"/>
-                    <Label x:Name="GenerateCustomLable" Content="Колличество карт" HorizontalAlignment="Left" Margin="27,202,0,0" VerticalAlignment="Top" Width="165" Height="32" FontSize="18" Grid.Column="1"/>
-                    <Label x:Name="ValidateCustomLable" Content="Номер карты для проверки" HorizontalAlignment="Left" Margin="319,202,0,0" VerticalAlignment="Top" Width="239" Height="32" FontSize="18" Grid.Column="1"/>
-                    <TextBox x:Name="NewBinTxtBox" HorizontalAlignment="Left" Margin="27,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="53" FontSize="22" BorderBrush="Black" Grid.Column="1"/>
-                    <Label Content="Введите Bin карты" HorizontalAlignment="Left" Margin="27,93,0,0" VerticalAlignment="Top" Width="165" Height="32" FontSize="18" Grid.Column="1"/>
+                    <TextBox x:Name="CustomCardTextBoxMain" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="210" Height="350" BorderBrush="Black" FontSize="20" IsReadOnly="True"/>
+                    <TextBox x:Name="ValidateCustomCardTxtBox" HorizontalAlignment="Left" Margin="531,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" Height="53" FontSize="22" BorderBrush="Black"/>
+                    <TextBox x:Name="CustomCountTxtBox" HorizontalAlignment="Left" Margin="239,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="53" FontSize="22" BorderBrush="Black"/>
+                    <Button x:Name="ValidaetCustomBtn" Content="Проверить" HorizontalAlignment="Left" Margin="605,311,0,0" VerticalAlignment="Top" Width="165" Height="46" FontSize="18" BorderBrush="Black" Click="ValidaetCustomBtn_Click"/>
+                    <Button x:Name="GenerateCustomBtn" Content="Сгенерировать" HorizontalAlignment="Left" Margin="239,311,0,0" VerticalAlignment="Top" Width="165" Height="46" FontSize="18" BorderBrush="Black" RenderTransformOrigin="0.535,-0.086" Click="GenerateCustomBtn_Click"/>
+                    <Label x:Name="GenerateCustomLable" Content="Колличество карт" HorizontalAlignment="Left" Margin="239,202,0,0" VerticalAlignment="Top" Width="165" Height="32" FontSize="18"/>
+                    <Label x:Name="ValidateCustomLable" Content="Номер карты для проверки" HorizontalAlignment="Left" Margin="531,202,0,0" VerticalAlignment="Top" Width="239" Height="32" FontSize="18"/>
+
+                    <Label Content="Введите Bin карты" HorizontalAlignment="Left" Margin="239,99,0,0" VerticalAlignment="Top" Width="165" Height="32" FontSize="18"/>
+                    <TextBox x:Name="NewBinTxtBox" HorizontalAlignment="Left" Margin="239,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="53" FontSize="22" BorderBrush="Black"/>
+                    <Image HorizontalAlignment="Left" Height="125" Margin="615,18,0,0" VerticalAlignment="Top" Width="155" Source="/credit_card_icon_129121.png"/>
                 </Grid>
             </TabItem>
         </TabControl>
