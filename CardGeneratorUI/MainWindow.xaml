@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Card Generator" Height="450" Width="818" ResizeMode="CanMinimize" WindowStyle="ToolWindow">
+        Title="Card Generator" Height="450" Width="818" WindowStyle="SingleBorderWindow" ResizeMode="CanMinimize">
     <Grid>
         <TabControl x:Name="CardTabs" >
             <TabItem Name="VisaTab" Header="Visa" Width="80" Height="40">
