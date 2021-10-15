@@ -5,6 +5,11 @@ using System.Windows;
 
 namespace CardGeneratorUI
 {
+    // TODO: Ограничить ввод колличества карт
+    //       Заблокировать кнопку генерации на время работы
+    //       Возможно, вывод карт по одной
+    //       Вписать шрифт в окно TextBox
+
     public partial class MainWindow : Window
     {
         private ICard _visa;
