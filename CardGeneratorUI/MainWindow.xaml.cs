@@ -9,17 +9,11 @@ namespace CardGeneratorUI
     //       Заблокировать кнопку генерации на время работы
     //       Возможно, вывод карт по одной
     //       Вписать шрифт в окно TextBox
+    //       Сделать кнопку "ImFeelingLuckyAsync" с рандомными бинами с массива
 
     public partial class MainWindow : Window
     {
-        private ICard _visa;
-        private ICard _masterCard;
-        private ICard _mir;
-        private RandomCard _customCard;
-
         private readonly ICardGenerator _cardgenerator;
-
-        public ICard RandomCard { get; set; }
 
         public MainWindow()
         {
@@ -31,7 +25,7 @@ namespace CardGeneratorUI
 
         private async void GenerateVisaBtn_Click(object sender, RoutedEventArgs e)
         {
-            _visa = new Visa();
+            ICard _visa = new Visa();
 
             if (VisaTab.IsSelected)
             {
@@ -48,7 +42,7 @@ namespace CardGeneratorUI
 
         private async void GenerateMCardBtn_Click(object sender, RoutedEventArgs e)
         {
-            _masterCard = new MasterCard();
+            ICard _masterCard = new MasterCard();
 
             if (MCardTab.IsSelected)
             {
@@ -65,7 +59,7 @@ namespace CardGeneratorUI
 
         private async void GenerateMirBtn_Click(object sender, RoutedEventArgs e)
         {
-            _mir = new Mir();
+            ICard _mir = new Mir();
 
             if (MirTab.IsSelected)
             {
@@ -82,7 +76,7 @@ namespace CardGeneratorUI
 
         private async void GenerateCustomBtn_Click(object sender, RoutedEventArgs e)
         {
-            _customCard = new RandomCard();
+            var _customCard = new RandomCard();
 
             if (CustomCardTab.IsSelected)
             {
